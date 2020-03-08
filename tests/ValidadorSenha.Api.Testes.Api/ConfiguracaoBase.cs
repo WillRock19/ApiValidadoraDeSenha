@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace ValidadorSenha.Api.Testes.Api
 {
     [SetUpFixture]
-    public class ConfiguracaoBaseTestes
+    public class ConfiguracaoBase
     {
         [OneTimeSetUp]
         public void InicializarAmbienteDeTestes() 

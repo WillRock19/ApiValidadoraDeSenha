@@ -5,6 +5,11 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 
+/*
+    Retrieved from: https://github.com/microsoft/aspnet-api-versioning/tree/master/samples/aspnetcore/SwaggerSample
+    following tutorial from: https://tim.covatrix.com/posts/api-ver/
+
+*/
 namespace ValidadorSenha.Api.Infraestrutura
 {
     /// <summary>
