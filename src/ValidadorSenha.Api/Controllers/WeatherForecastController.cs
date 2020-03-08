@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ValidadorSenha.Api.Controllers.v1
+namespace ValidadorSenha.Api.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]
