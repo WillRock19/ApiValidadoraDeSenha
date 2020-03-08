@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 
-namespace ValidadorSenha.Api
+namespace ValidadorSenha.Api.Infraestrutura
 {
     /// <summary>
     /// Configures the Swagger generation options.
