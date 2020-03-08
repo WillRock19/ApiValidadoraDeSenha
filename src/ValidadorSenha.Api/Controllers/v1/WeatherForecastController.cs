@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ValidadorSenha.Api.Controllers
+namespace ValidadorSenha.Api.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]
-    [Route("v{version:apiVersion}/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
