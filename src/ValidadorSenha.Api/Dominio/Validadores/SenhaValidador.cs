@@ -28,6 +28,6 @@ namespace ValidadorSenha.Api.Dominio.Validadores
         }
 
         private bool PossuiNoveOuMaisCaracteres(string senha)
-            => senha.Length >= 9;
+            => !string.IsNullOrEmpty(senha) && senha.Length >= 9;
     }
 }

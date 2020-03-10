@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using ValidadorSenha.Api.Dominio.Validadores;
 using ValidadorSenha.Api.Infraestrutura;
 
 namespace ValidadorSenha.Api
@@ -26,6 +27,7 @@ namespace ValidadorSenha.Api
             services.AddControllers();
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+            services.AddTransient<SenhaValidador>();
 
             services.AddApiVersioning(options =>
             {

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using ValidadorSenha.Api.Controllers.v1.Entrada;
+using ValidadorSenha.Api.Dominio.Validadores;
 
 namespace ValidadorSenha.Api.Controllers.v1
 {
@@ -12,12 +9,18 @@ namespace ValidadorSenha.Api.Controllers.v1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class SenhaController : ControllerBase
     {
+        private readonly SenhaValidador _senhaValidador;
 
-
-        [HttpGet]
-        public bool ValidarSenha() 
+        public SenhaController(SenhaValidador senhaValidador)
         {
-            return false;
+            _senhaValidador = senhaValidador;
+        }
+
+        [HttpPost]
+        public ActionResult<bool> ValidarSenha([FromBody] RequisicaoValidarSenha requisição)
+        {
+            var senhaVálida = _senhaValidador.SenhaEstáVálida(requisição.Senha);
+            return Ok(new RespostaValidacaoSenha { SenhaVálida = senhaVálida });
         }
     }
 }

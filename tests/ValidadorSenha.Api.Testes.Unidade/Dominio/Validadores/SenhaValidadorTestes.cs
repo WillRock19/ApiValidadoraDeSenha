@@ -34,6 +34,20 @@ namespace ValidadorSenha.Api.Testes.Unidade.Dominio.Validadores
         }
 
         [Test]
+        public void SenhaEstáVálidaDeveRetornarFalseCasoSenhaEstejaVazia() 
+        {
+            var senha = string.Empty;
+            _validador.SenhaEstáVálida(senha).Should().BeFalse();
+        }
+
+        [Test]
+        public void SenhaEstáVálidaDeveRetornarFalseCasoSenhaEstejaNula()
+        {
+            const string senha = null;
+            _validador.SenhaEstáVálida(senha).Should().BeFalse();
+        }
+
+        [Test]
         public void SenhaEstáVálidaDeveRetornarFalseCasoSenhaTenhaMenosDeNoveCaracteres()
         {
             const string senha = "Teste@78";
