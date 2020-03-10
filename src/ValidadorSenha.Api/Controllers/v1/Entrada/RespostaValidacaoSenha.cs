@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace ValidadorSenha.Api.Controllers.v1.Entrada
 {
     public class RespostaValidacaoSenha
     {
+        [JsonPropertyName("senhaValida")]
         public bool SenhaVálida { get; set; }
     }
 }

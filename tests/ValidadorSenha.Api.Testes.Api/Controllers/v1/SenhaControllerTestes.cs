@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using FluentAssertions.Http;
-using Newtonsoft.Json;
 using NUnit.Framework;
 using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using ValidadorSenha.Api.Controllers.v1.Entrada;
 
@@ -34,11 +34,19 @@ namespace ValidadorSenha.Api.Testes.Api.Controllers.v1
         public async Task PostDeveReceberSenhaERetornarTrueCasoSejaVálida() 
         {
             const string senhaVálida = "S#nh@V@lida!999";
-            var conteudoRequisição = CriarConteúdoDaRequisição(senhaVálida);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
 
+            var conteudoRequisição = CriarConteúdoDaRequisição(senhaVálida);
             var resposta = await _client.PostAsync(EndpointUrl, conteudoRequisição);
-            var conteudoRetornado = JsonConvert
-                .DeserializeObject<RespostaValidacaoSenha>(await resposta.Content.ReadAsStringAsync());
+
+            var conteudoRetornado = JsonSerializer
+                .Deserialize<RespostaValidacaoSenha>(
+                    await resposta.Content.ReadAsStringAsync(), options
+                );
 
             conteudoRetornado.Should().NotBeNull();
             conteudoRetornado.SenhaVálida.Should().BeTrue();
@@ -49,7 +57,7 @@ namespace ValidadorSenha.Api.Testes.Api.Controllers.v1
             var requisição = new RequisicaoValidarSenha() { Senha = senha };
 
             return new StringContent(
-                JsonConvert.SerializeObject(requisição), Encoding.UTF8, MediaTypeNames.Application.Json
+                JsonSerializer.Serialize(requisição), Encoding.UTF8, MediaTypeNames.Application.Json
             );
         }
     }
