@@ -3,12 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System;
 
 /*
     Retrieved from: https://github.com/microsoft/aspnet-api-versioning/tree/master/samples/aspnetcore/SwaggerSample
     following tutorial from: https://tim.covatrix.com/posts/api-ver/
-
 */
 namespace ValidadorSenha.Api.Infraestrutura
 {
@@ -28,30 +26,30 @@ namespace ValidadorSenha.Api.Infraestrutura
         public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => this.provider = provider;
 
         /// <inheritdoc />
-        public void Configure(SwaggerGenOptions options)
+        public void Configure(SwaggerGenOptions options) => 
+            CriarDocumentosParaCadaVersãoDaAPI(options);
+
+        private void CriarDocumentosParaCadaVersãoDaAPI(SwaggerGenOptions options) 
         {
-            // add a swagger document for each discovered API version
-            // note: you might choose to skip or document deprecated API versions differently
-            foreach (var description in provider.ApiVersionDescriptions)
+            foreach (var descrição in provider.ApiVersionDescriptions)
             {
-                options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
+                options.SwaggerDoc(descrição.GroupName, CriarInformaçõesParaAVersãoDaAPI(descrição));
             }
         }
 
-        static OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription description)
+        static OpenApiInfo CriarInformaçõesParaAVersãoDaAPI(ApiVersionDescription descrição)
         {
             var info = new OpenApiInfo()
             {
-                Title = "Sample API",
-                Version = description.ApiVersion.ToString(),
-                Description = "A sample application with Swagger, Swashbuckle, and API versioning.",
-                Contact = new OpenApiContact() { Name = "Bill Mei", Email = "bill.mei@somewhere.com" },
-                License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
+                Title = "API validadora de senha",
+                Version = descrição.ApiVersion.ToString(),
+                Description = "Uma API validadora de senha criada com Swagger, Swashbuckle e versionamento.",
+                Contact = new OpenApiContact() { Name = "William Porto", Email = "williamporto19@gmail.com" }
             };
 
-            if (description.IsDeprecated)
+            if (descrição.IsDeprecated)
             {
-                info.Description += " This API version has been deprecated.";
+                info.Description += " Esta API está obsoleta.";
             }
 
             return info;

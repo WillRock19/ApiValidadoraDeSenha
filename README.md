@@ -1,4 +1,4 @@
-# Title: Validador de senhas
+# Projeto: Validador de senhas
 
 API criada para analisar se uma senha é válida ou não. São consideradas senhas válidas aquelas que contém: 
 
@@ -7,6 +7,8 @@ API criada para analisar se uma senha é válida ou não. São consideradas senh
 * Ao menos 1 letra minúscula;
 * Ao menos 1 letra maiúscula;
 * Ao menos 1 caractere especial;
+
+**IMPORTANTE: os comentários do arquivo ConfigureSwaggerOptions.cs foram mantidos para referências a estudos posteriores.**
 
 ## Iniciando
 
