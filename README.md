@@ -62,9 +62,11 @@ Caso queira enviar uma requisição de fora do Swagger, siga os seguintes passos
 
 * Você receberá um objeto de resposta como segue o exemplo abaixo:
 
+```
 {
   "senhaValida": false
 }
+```
 
 **OBS: Caso esteja executando do Insomnia, desabilite os certificados SSL para testes**;
 
