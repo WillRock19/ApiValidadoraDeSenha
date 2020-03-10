@@ -10,8 +10,6 @@ API criada para analisar se uma senha é válida ou não. São consideradas senh
 
 ## Iniciando
 
-Estas instruções irão ensinar o necessário para se rodar este projeto. 
-
 ### Pré-requisitos
 
 Para rodar esta aplicação, são necessários:
@@ -19,10 +17,29 @@ Para rodar esta aplicação, são necessários:
 * .NET Core 3.1 (baixe aqui: );
 * Visual Studio 2019 (baixe aqui: );
 
-
 ### Instalações
 
+Siga as indicações dentro do site da Microsoft e do próprio instalador do visual studio para instalar todas as dependências.
+
 ## Rodando a aplicação
+
+### Rodando pelo Visual Studio 2019
+
+* Abra o projeto no Visual Studio 2019;
+* Aperte **Ctrl+shift+B** para buildar o projeto;
+* Selecione o projeto **ValidadorSenha.Api** como Startup project;
+* No menu superior, garanta que o projeto supracitado esteja selecionado e clique em **IIS Express**;
+* Aguarde a aplicação ser carregada no navegador;
+
+### Rodando pela CommandLine
+
+* Abra sua cmdline no diretório do projeto;
+* Vá até a pasta **\src\ValidadorSenha.Api**;
+* Rode o comando **dotnet run**;
+* Aguarde enquanto o projeto é compilado;
+* Copie o endereço que é exposto no console (geralmente http://localhost:5000) e cole-o no navegador;
+* Acrescente **/swagger** ao final da URL copiada;
+* Dê ENTER e acesse a aplicação;
 
 ## Rodando os testes
 
