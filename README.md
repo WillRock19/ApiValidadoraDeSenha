@@ -24,8 +24,9 @@ Para rodar esta aplicação, são necessários:
 
 #### Linux
 
-* [.NET Core SDK 3.1.100](https://docs.microsoft.com/pt-br/dotnet/core/install/linux-package-manager-ubuntu-1904);
-* [ASP.NET Core Runtime 3.1.0](https://docs.microsoft.com/pt-br/dotnet/core/install/linux-package-manager-ubuntu-1904);
+* [.NET Core SDK 3.1.100](https://docs.microsoft.com/pt-br/dotnet/core/install/linux-package-manager-ubuntu-1904#install-the-net-core-sdk);
+* [ASP.NET Core Runtime 3.1.0](https://docs.microsoft.com/pt-br/dotnet/core/install/linux-package-manager-ubuntu-1904#install-the-net-core-runtime);
+
 
 ### Instalações
 
