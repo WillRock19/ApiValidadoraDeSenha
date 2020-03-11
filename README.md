@@ -16,9 +16,16 @@ API criada para analisar se uma senha é válida ou não. São consideradas senh
 
 Para rodar esta aplicação, são necessários:
 
+#### Windows
+
 * [.NET Core SDK 3.1.100](https://dotnet.microsoft.com/download/dotnet-core/3.1);
 * [ASP.NET Core Runtime 3.1.0](https://dotnet.microsoft.com/download/dotnet-core/3.1);
 * [Visual Studio 2019](https://visualstudio.microsoft.com/pt-br/vs/);
+
+#### Linux
+
+* [.NET Core SDK 3.1.100](https://docs.microsoft.com/pt-br/dotnet/core/install/linux-package-manager-ubuntu-1904);
+* [ASP.NET Core Runtime 3.1.0](https://docs.microsoft.com/pt-br/dotnet/core/install/linux-package-manager-ubuntu-1904);
 
 ### Instalações
 
